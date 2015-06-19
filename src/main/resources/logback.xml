@@ -1,8 +1,8 @@
 <configuration>
- 
-    <property name="LoggingDir" value="../logs/" />
+
+    <property name="LoggingDir" value="/usr/local/tomcat/logs/" />
     <property name="ROOT_LEVEL" value="TRACE" />
- 
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>TRACE</level>
@@ -11,7 +11,7 @@
             <Pattern>%d{yyyy-MMM-dd HH:mm:ss.SSS} [%level] %marker %logger - %msg%n</Pattern>
         </layout>
     </appender>
- 
+
     <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <append>true</append>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -27,13 +27,13 @@
             </pattern>
         </encoder>
     </appender>
- 
+
     <logger name="org.springframework" level="INFO" />
     <logger name="ch.qos.logback" level="ERROR" />
- 
+
     <root level="${ROOT_LEVEL}">
     	<appender-ref ref="STDOUT"/>
         <appender-ref ref="DEBUG"/>
     </root>
-    
+
 </configuration>

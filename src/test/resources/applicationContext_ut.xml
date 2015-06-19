@@ -13,7 +13,6 @@
 	<context:component-scan base-package="jp.inc.forrest.aws" />
 	<mvc:annotation-driven />
 	
-	<!-- 以下、レガシーな記述方法である。 SpringMVCであれば、mvc:interceptorsが使える場合もある。 -->
 	<bean id="accessLogInterceptor" class="jp.inc.forrest.aws.interceptor.AccessLogInterceptor" />
 	<bean id="accessLog" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
 		<property name="advice" ref="accessLogInterceptor" />
@@ -22,7 +21,6 @@
 
 	<bean id="beanNameAutoProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">		
 		<property name="beanNames">
-			<!-- 仮にComponentとしているが、APIであれば本来はServiceにすべき -->
 			<value>*ComponentImpl</value>
 		</property>
 		<property name="interceptorNames">
@@ -30,7 +28,6 @@
 		</property>
 	</bean>
 	
-	<!-- SNSのトピック受信時の電子署名チェッカーユーティリティ -->
 	<bean id="signatureChecker" class="com.amazonaws.services.sns.util.SignatureChecker" />
 	
 </beans>
