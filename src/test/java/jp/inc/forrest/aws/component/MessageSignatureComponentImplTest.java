@@ -60,6 +60,7 @@ public class MessageSignatureComponentImplTest {
 			}
 		};
 
+		// テストデータを読み込む（Notification.jsonはSNSから発行して、別途用意する必要があります。）
 		String message = FileUtils.readFileToString(new File("Notification.json"));
 		Message msg = MessageReadUtil.readMessageFromJson(message);
 		ObjectMapper mapper = new ObjectMapper();
