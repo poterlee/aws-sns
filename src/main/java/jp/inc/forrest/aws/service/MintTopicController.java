@@ -1,6 +1,5 @@
 package jp.inc.forrest.aws.service;
 
-import java.io.IOException;
 import java.net.URL;
 import java.security.PublicKey;
 import java.util.Scanner;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import jp.inc.forrest.aws.component.MessageSignatureComponent;
 import jp.inc.forrest.aws.service.dto.Message;
+import jp.inc.forrest.aws.util.MessageReadUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -62,7 +61,7 @@ public class MintTopicController {
 			// メッセージ
 			String message = builder.toString();
 			// メッセージオブジェクト
-			Message msg = readMessageFromJson(message);
+			Message msg = MessageReadUtil.readMessageFromJson(message);
 
 			// メッセージにMessageAttributesが含まれている場合、以下のメソッド実行でRuntimeExceptionが発生するため、
 			// メッセージオブジェクトからメッセージを再生成する。
@@ -113,34 +112,6 @@ public class MintTopicController {
 	public Message hello() {
 		messageSignatureComponent.hello("forrestinc");
 		return new Message();
-	}
-
-	/**
-	 * JSON文字列を{@link Message}オブジェクトへ変換する。
-	 *
-	 * @param json
-	 * @return
-	 */
-	private Message readMessageFromJson(String json) {
-
-		ObjectMapper objectMapper = new ObjectMapper();
-
-		// マッピングされるオブジェクトに未定義な属性は無視する設定
-		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-		try {
-
-			Message msg = objectMapper.readValue(json, Message.class);
-			logger.info(msg.toString());
-
-			return msg;
-
-		} catch (IOException e) {
-
-			logger.error(e.getMessage(), e);
-			return null;
-		}
-
 	}
 
 }

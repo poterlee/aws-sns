@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
@@ -11,23 +10,23 @@
 	 http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 	<context:component-scan base-package="jp.inc.forrest.aws" />
-	<mvc:annotation-driven />
-	
-	<bean id="accessLogInterceptor" class="jp.inc.forrest.aws.interceptor.AccessLogInterceptor" />
-	<bean id="accessLog" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
-		<property name="advice" ref="accessLogInterceptor" />
-		<property name="patterns" value=".*" />
-	</bean>
 
-	<bean id="beanNameAutoProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">		
-		<property name="beanNames">
-			<value>*ComponentImpl</value>
-		</property>
-		<property name="interceptorNames">
-			<value>accessLog</value>
-		</property>
-	</bean>
-	
+<!-- 	<bean id="accessLogInterceptor" class="jp.inc.forrest.aws.interceptor.AccessLogInterceptor" /> -->
+<!-- 	<bean id="accessLog" -->
+<!-- 		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"> -->
+<!-- 		<property name="advice" ref="accessLogInterceptor" /> -->
+<!-- 		<property name="patterns" value=".*" /> -->
+<!-- 	</bean> -->
+
+<!-- 	<bean id="beanNameAutoProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"> -->
+<!-- 		<property name="beanNames"> -->
+<!-- 			<value>*ComponentImpl</value> -->
+<!-- 		</property> -->
+<!-- 		<property name="interceptorNames"> -->
+<!-- 			<value>accessLog</value> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
 	<bean id="signatureChecker" class="com.amazonaws.services.sns.util.SignatureChecker" />
-	
+
 </beans>
