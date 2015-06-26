@@ -1,3 +1,4 @@
+#### AWS SDK サンプル [![Build Status](https://travis-ci.org/kuhubgit/aws.svg?branch=master)](https://travis-ci.org/kuhubgit/aws)
 #####本ソースコードの使用方法
 * Eclipseプロジェクト形式ですので、Eclipseへインポートすることができます。
  ~~Maven Tomcat Pluginを使用しています。m2eclipseをご使用のEclipseへインストールし、Mavenのセットアップ(Installations, UserSettings)も同時に行ってください。~~
@@ -16,7 +17,7 @@
 
 #####JUnitテスト
 * EclipseでJUnitテストを実行する場合はgradleタスク（Ctrl+Alt+Shift+R）で行ってください。
-    * test　テストケース実行
+    * test　テストケース実行 (InstalledJREs で JDK1.8が選択されているとエラーになります。)
     * jacocoTestReport カバレッジレポート作成(build/reports/jacoco) 
 
 #####RELEASE
