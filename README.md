@@ -1,4 +1,4 @@
-#### AWS SNS Topic HTTP Endpoint サンプル [![Build Status](https://travis-ci.org/kuhubgit/aws.svg?branch=master)](https://travis-ci.org/kuhubgit/aws)
+#### AWS SNS Topic HTTP Endpoint サンプル [![Build Status](https://travis-ci.org/kuhubgit/aws-sns.svg?branch=master)](https://travis-ci.org/kuhubgit/aws-sns)
 #####本ソースコードの使用方法
 * Eclipseプロジェクト形式ですので、Eclipseへインポートすることができます。
  ~~Maven Tomcat Pluginを使用しています。m2eclipseをご使用のEclipseへインストールし、Mavenのセットアップ(Installations, UserSettings)も同時に行ってください。~~
