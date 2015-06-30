@@ -4,3 +4,10 @@ jdk:
   
 before_install:
  - chmod +x gradlew
+ 
+deploy:
+  provider: codedeploy
+  access_key_id: ENV['AWS_ACCESS_KEY']
+  secret_access_key: ENV['AWS_SECRET_KEY']
+  application: aws-sns
+  deployment_group: mint
