@@ -1,0 +1,5 @@
+version: 0.1
+os: linux
+files:
+  - source: pom.xml
+    destination: /home/ec2-user/
