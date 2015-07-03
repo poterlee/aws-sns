@@ -31,6 +31,6 @@ public interface MessageSignatureComponent {
 	 */
 	PublicKey getPublicKey(Message msg);
 
-	void hello(String message);
+	void health(String message);
 
 }

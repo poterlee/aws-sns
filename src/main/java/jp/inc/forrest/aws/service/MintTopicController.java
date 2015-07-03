@@ -85,7 +85,8 @@ public class MintTopicController {
 					while (subscribeScanner.hasNextLine()) {
 						sb.append(subscribeScanner.nextLine());
 					}
-					logger.info(" >> Subscription confirmation (" + msg.getSubscribeURL() + ") Return value: " + sb.toString());
+					logger.info(" >> Subscription confirmation (" + msg.getSubscribeURL() + ") Return value: "
+							+ sb.toString());
 				}
 
 				// TODO: ライフサイクルフックの実装
@@ -107,11 +108,11 @@ public class MintTopicController {
 	 *
 	 * @return
 	 */
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@RequestMapping(value = "/health", method = RequestMethod.GET)
 	@ResponseBody
-	public Message hello() {
-		messageSignatureComponent.hello("forrestinc");
-		return new Message();
+	public String health() {
+		messageSignatureComponent.health("Forrest Inc.");
+		return "Server is Running.";
 	}
 
 }

@@ -6,7 +6,7 @@ apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 
 group = 'jp.inc.forrest'
-version = '0.1.2-SNAPSHOT'
+version = '1.0.0-SNAPSHOT'
 
 project.ext {
   artifactId = 'aws'
@@ -50,6 +50,23 @@ dependencies {
 
 war {
     from 'src/main/weabapp'
+    archiveName 'mint.war'
+}
+
+def contentSpec = copySpec {
+    from('eb') {
+        include '**/*'
+    }
+}
+
+task contentsCopy(type: Copy) {
+    into "$buildDir/libs"
+    with contentSpec
+}
+
+task zipper(dependsOn: 'contentsCopy', type: Zip) {
+    from 'build/libs'
+    archiveName 'release.zip'
 }
 
 jettyRunWar{

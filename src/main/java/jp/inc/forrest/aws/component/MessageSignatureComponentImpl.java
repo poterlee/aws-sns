@@ -34,7 +34,7 @@ public class MessageSignatureComponentImpl implements MessageSignatureComponent 
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * jp.inc.forrest.aws.component.MessageSignatureComponent#check(java.lang
 	 * .String, java.security.PublicKey)
@@ -48,7 +48,7 @@ public class MessageSignatureComponentImpl implements MessageSignatureComponent 
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * jp.inc.forrest.aws.component.MessageSignatureComponent#getPublicKey(jp
 	 * .inc.forrest.aws.service.dto.Message)
@@ -82,12 +82,14 @@ public class MessageSignatureComponentImpl implements MessageSignatureComponent 
 
 	/*
 	 * (non-Javadoc)
-	 *
-	 * @see jp.inc.forrest.aws.component.MessageSignatureComponent#hello()
+	 * 
+	 * @see
+	 * jp.inc.forrest.aws.component.MessageSignatureComponent#health(java.lang
+	 * .String)
 	 */
 	@Override
-	public void hello(String message) {
-		logger.info("Hello World. " + message);
+	public void health(String message) {
+		logger.info("HELO " + message);
 	}
 
 }

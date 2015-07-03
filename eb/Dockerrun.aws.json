@@ -1,0 +1,10 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Volumes": [
+    {
+      "HostDirectory": "/var/log/tomcat",
+      "ContainerDirectory": "/usr/local/tomcat/logs"
+    }
+  ],
+  "Logging": "/var/log/nginx"
+}

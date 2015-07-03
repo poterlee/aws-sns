@@ -2,3 +2,4 @@ target
 build
 .gradle
 /.apt_generated/
+/bin/
