@@ -64,7 +64,6 @@ public class MessageSignatureComponentImpl implements MessageSignatureComponent 
 			inStream = url.openStream();
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
 			cert = (X509Certificate) cf.generateCertificate(inStream);
-			inStream.close();
 		} catch (CertificateException | IOException e) {
 			logger.error(e.getMessage(), e);
 		} finally {
